@@ -142,5 +142,15 @@ class ADXL355:
         y_data = (y_data[0] >> 4) + (y_data[1] << 4) + (y_data[2] << 12)
         z_data = (z_data[0] >> 4) + (z_data[1] << 4) + (z_data[2] << 12)
 
+        # Apply two complement
+        if x_data & 0x80000 == 0x80000:
+            x_data = ~x_data + 1
+
+        if y_data & 0x80000 == 0x80000:
+            y_data = ~y_data + 1
+
+        if z_data & 0x80000 == 0x80000:
+            z_data = ~z_data + 1
+
         # Return values
         return {'x': x_data, 'y': y_data, 'z': z_data}
