@@ -9,7 +9,7 @@ Using SPI protocol, the library connects to device to read, write and obtain dat
 To test this library on Python console:
 
 ```
-$ python 3 -i lib/adxl355.py
+$ python3 -i lib/adxl355.py
 ```
 Then
 
